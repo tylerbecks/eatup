@@ -4,9 +4,9 @@
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Sunny
+  - __Scrum Master__: Tyler
+  - __Development Team Members__: Dan, David, Sunny, Tyler
 
 ## Table of Contents
 
