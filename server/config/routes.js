@@ -1,5 +1,5 @@
-var userController = require('./users/user.controller.js');
-var eatUpsController = require('./eatUps/eatUps.controller.js');
+var userController = require('./controllers/user.controller.js');
+var eatUpsController = require('./controllers/eatUps.controller.js');
 // var router = require('express').Router();
 
 // router.get('/messages', userController);
@@ -9,7 +9,6 @@ var eatUpsController = require('./eatUps/eatUps.controller.js');
 // router.get('/users', controller.users.get);
 
 // router.post('/users', controller.users.post);
-
 
 // module.exports = router;
 

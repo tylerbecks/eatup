@@ -4,7 +4,7 @@ var app = express();
 var router = require('./config/routes.js');
 
 require('./config/middleware.js')(app, express);
-require('./db/db.js');
+require('./models/db.js');
 app.use(router);
 
 app.listen(3000, function() {
