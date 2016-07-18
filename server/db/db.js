@@ -1,5 +1,5 @@
 var Sequelize = require('sequelize');
-var db = new Sequelize('dbeatup', 'root');
+var db = new Sequelize('dbeatup', 'root', '');
 
 var User = db.define('User', {
   username: Sequelize.STRING,
