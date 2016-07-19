@@ -1,5 +1,5 @@
-var db = require('../models/db.js');
-var User = db.User;
+// var db = require('../models/db.js');
+// var User = db.User;
 //Routes will point to this controller
 
   //The controller will then call the methods on the Model

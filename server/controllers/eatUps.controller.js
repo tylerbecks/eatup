@@ -1,5 +1,5 @@
-var db = require('../models/db.js');
-var Session = db.Session;
+// var db = require('../models/db.js');
+// var Session = db.Session;
 //Routes will point to this controller
 
   //The controller will then call the methods on the Model
