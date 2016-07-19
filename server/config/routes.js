@@ -1,5 +1,5 @@
-var userController = require('./controllers/user.controller.js');
-var eatUpsController = require('./controllers/eatUps.controller.js');
+// var userController = require('../controllers/user.controller.js');
+// var eatUpsController = require('../controllers/eatUps.controller.js');
 // var router = require('express').Router();
 
 // router.get('/messages', userController);
