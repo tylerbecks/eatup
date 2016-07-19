@@ -22,6 +22,21 @@
 
 > Some usage instructions
 
+  To start server
+  ```
+  npm run start
+  ```
+
+  To compile webpack file automatically 
+  ```
+  npm run dev
+  ```
+
+  To build production webpack file
+  ```
+  npm run build
+  ```
+
 ## Requirements
 
 - Node 0.10.x
