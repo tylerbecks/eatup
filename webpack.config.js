@@ -6,7 +6,7 @@ var APP_DIR = path.resolve(__dirname, 'client/app');
 var BUILD_DIR = path.resolve(__dirname, 'client/public');
 
 var config = {
-  //Compiles from index.jsx
+  //Entry point for compile
   entry: APP_DIR + '/index.jsx',
   output: {
     //Defines path for bundled path

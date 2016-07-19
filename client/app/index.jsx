@@ -1,17 +1,10 @@
 import React from 'react';
-import {render} from 'react-dom';
-import AwesomeComponent from './AwesomeComponent.jsx';
+import ReactDOM from 'react-dom';
+import App from './Components/App.jsx';
 
-// File that is getting 
-class App extends React.Component {
-  render () {
-    return (
-      <div>
-        <p> Hello React!</p>
-        <AwesomeComponent />
-      </div>
-    )
-  }
-}
 
-render(<App/>, document.getElementById('app'));
+const app = document.getElementById('app');
+ReactDOM.render(<App  />, app);
+
+
+
