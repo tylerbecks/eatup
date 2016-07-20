@@ -1,4 +1,6 @@
 ### node etc ###
+# Sensitive data
+server/models/db.js
 
 # Logs
 logs
