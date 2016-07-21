@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router';
 
-// const Home = () => <div><h1>Home</h1></div>
+//import AwesomeComponent from './AwesomeCompnent.jsx'
 
 class Home extends React.Component {
   constructor(props) {
@@ -15,6 +15,7 @@ class Home extends React.Component {
           <Link to="/">Home</Link>
           <Link to="/SignIn">SignIn</Link>
           <Link to="/SignUp">SignUp</Link>
+          <Link to="/Map">Map</Link>
         </nav>
         <div>
           <h1>Google Maps Page</h1>
