@@ -8,13 +8,14 @@ import Button from 'react-bootstrap/lib/Button';
 import LinkContainer from 'react-router-bootstrap/lib/LinkContainer';
 
 class MyNav extends React.Component {
+
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <Navbar inverse>
+      <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
             <a href="#">EatUp</a>
@@ -25,10 +26,15 @@ class MyNav extends React.Component {
           <Nav>
             <Navbar.Form pullLeft>
               <FormGroup>
-                <FormControl type="text" placeholder="Search" />
+                 <FormControl
+                    id="searchTextField"
+                    type="text"
+                    placeholder="Search for a place"
+                    onChange={ this.props.handleSearchChange }
+                  />
               </FormGroup>
               {' '}
-              <Button type="submit">Submit</Button>
+              <Button type="submit" onClick={ this.props.handleSubmit }>Submit</Button>
             </Navbar.Form>
           </Nav>
           <Nav pullRight>
