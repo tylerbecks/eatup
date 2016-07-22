@@ -26,7 +26,7 @@
   ```
   1. Duplicate db.template.js as db.js
   2. On line 2, change ('database_name', 'username', 'password') to appropriate values.
-  3. npm run start
+  3. npm start
   ```
 
   To compile webpack file automatically 
