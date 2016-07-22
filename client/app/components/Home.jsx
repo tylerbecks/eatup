@@ -1,8 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router';
+<<<<<<< 099368ea08e0e6b7d76cc6a2c1ac6c7340f0d139
 import MyNav from './Navbar.jsx';
 import MyEatups from './MyEatups.jsx';
 import ListOfEatUp from './Lists.jsx';
+=======
+import MyNav from './Navbar.jsx'
+import ListOfEatUps from './Lists.jsx'
+>>>>>>> Begin incorporating jQuery ajax format
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -71,6 +76,7 @@ export default class Home extends React.Component {
                handleSubmit={ this.handleSubmit.bind(this) } />
         <div className="container">
           <h1>Eatups around you!</h1>
+          <ListOfEatUps />
         </div>
         <div>
           <ListOfEatUp sessions = {this.state.sessions} />
