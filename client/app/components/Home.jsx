@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router';
-
-//import AwesomeComponent from './AwesomeCompnent.jsx'
+import MyNav from './Navbar.jsx'
 
 class Home extends React.Component {
   constructor(props) {
@@ -11,14 +10,9 @@ class Home extends React.Component {
     return (
       //Defines the nav bar and different routes depending on clicks
       <div>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/SignIn">SignIn</Link>
-          <Link to="/SignUp">SignUp</Link>
-          <Link to="/Map">Map</Link>
-        </nav>
+        <MyNav />
         <div>
-          <h1>Google Maps Page</h1>
+          <h1>Eatups around you!</h1>
         </div>
       </div>
     )

@@ -29,7 +29,7 @@
 // module.exports = config;
 
 
-var webpack = require('webpack')
+var webpack = require('webpack');
 var path = require('path');
 
 
@@ -64,4 +64,3 @@ var config = {
 };
 
 module.exports = config;
-
