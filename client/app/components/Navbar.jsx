@@ -6,15 +6,8 @@ import FormGroup from 'react-bootstrap/lib/FormGroup';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import Button from 'react-bootstrap/lib/Button';
 import LinkContainer from 'react-router-bootstrap/lib/LinkContainer';
-// import Searchbar from './Searchbar.jsx';
 
 class MyNav extends React.Component {
-
-  componentDidMount() {
-    var input = document.getElementById('searchTextField');
-    var options = {componentRestrictions: {country: 'us'}};   
-    new google.maps.places.Autocomplete(input, options);
-  }
 
   constructor(props) {
     super(props);
@@ -32,16 +25,16 @@ class MyNav extends React.Component {
         <Navbar.Collapse>
           <Nav>
             <Navbar.Form pullLeft>
-              <FormGroup >
-                 <FormControl 
-                    id="searchTextField" 
-                    type="text" 
-                    placeholder="Search for a place" 
-                    onChange={this.props.handleSearchChange}
+              <FormGroup>
+                 <FormControl
+                    id="searchTextField"
+                    type="text"
+                    placeholder="Search for a place"
+                    onChange={ this.props.handleSearchChange }
                   />
               </FormGroup>
               {' '}
-              <Button type="submit">Submit</Button>
+              <Button type="submit" onClick={ this.props.handleSubmit }>Submit</Button>
             </Navbar.Form>
           </Nav>
           <Nav pullRight>
