@@ -75,11 +75,11 @@
 	
 	var _Home2 = _interopRequireDefault(_Home);
 	
-	var _SignIn = __webpack_require__(/*! ./components/SignIn.jsx */ 318);
+	var _SignIn = __webpack_require__(/*! ./components/SignIn.jsx */ 320);
 	
 	var _SignIn2 = _interopRequireDefault(_SignIn);
 	
-	var _SignUp = __webpack_require__(/*! ./components/SignUp.jsx */ 319);
+	var _SignUp = __webpack_require__(/*! ./components/SignUp.jsx */ 321);
 	
 	var _SignUp2 = _interopRequireDefault(_SignUp);
 	
@@ -27525,10 +27525,22 @@
 	  function Home(props) {
 	    _classCallCheck(this, Home);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Home).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Home).call(this, props));
+	
+	    _this.state = {
+	      search: '',
+	      selectedCoordinate: null
+	    };
+	    return _this;
 	  }
 	
 	  _createClass(Home, [{
+	    key: 'handleSearchChange',
+	    value: function handleSearchChange(e) {
+	      this.setState({ search: e.target.value });
+	      console.log(this.state.search); // setState is asynchronous, so this logged value is not updated
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return (
@@ -27536,10 +27548,10 @@
 	        _react2.default.createElement(
 	          'div',
 	          null,
-	          _react2.default.createElement(_Navbar2.default, null),
+	          _react2.default.createElement(_Navbar2.default, { handleSearchChange: this.handleSearchChange.bind(this) }),
 	          _react2.default.createElement(
 	            'div',
-	            null,
+	            { className: 'container' },
 	            _react2.default.createElement(
 	              'h1',
 	              null,
@@ -27611,8 +27623,19 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	// import Searchbar from './Searchbar.jsx';
+	
 	var MyNav = function (_React$Component) {
 	  _inherits(MyNav, _React$Component);
+	
+	  _createClass(MyNav, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var input = document.getElementById('searchTextField');
+	      var options = { componentRestrictions: { country: 'us' } };
+	      new google.maps.places.Autocomplete(input, options);
+	    }
+	  }]);
 	
 	  function MyNav(props) {
 	    _classCallCheck(this, MyNav);
@@ -27625,7 +27648,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        _Navbar2.default,
-	        { inverse: true },
+	        null,
 	        _react2.default.createElement(
 	          _Navbar2.default.Header,
 	          null,
@@ -27652,7 +27675,12 @@
 	              _react2.default.createElement(
 	                _FormGroup2.default,
 	                null,
-	                _react2.default.createElement(_FormControl2.default, { type: 'text', placeholder: 'Search' })
+	                _react2.default.createElement(_FormControl2.default, {
+	                  id: 'searchTextField',
+	                  type: 'text',
+	                  placeholder: 'Search for a place',
+	                  onChange: this.props.handleSearchChange
+	                })
 	              ),
 	              ' ',
 	              _react2.default.createElement(
@@ -32662,7 +32690,9 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 318 */
+/* 318 */,
+/* 319 */,
+/* 320 */
 /*!*******************************!*\
   !*** ./components/SignIn.jsx ***!
   \*******************************/
@@ -32718,7 +32748,7 @@
 	exports.default = SignIn;
 
 /***/ },
-/* 319 */
+/* 321 */
 /*!*******************************!*\
   !*** ./components/SignUp.jsx ***!
   \*******************************/
