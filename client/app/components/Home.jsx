@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router';
 import MyNav from './Navbar.jsx';
 import MyEatups from './MyEatups.jsx';
+import ListOfEatUp from './Lists.jsx';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -9,12 +10,14 @@ export default class Home extends React.Component {
     this.state = {
       search: '',
       selectedCoordinate: null,
-      data: []
+      data: [],
+      sessions: []
     }
   }
 
   componentWillMount() {
     this.getData();
+    this.getAllSessions();
   }
 
   componentDidMount() {
@@ -47,17 +50,33 @@ export default class Home extends React.Component {
     });
   };
 
+  getAllSessions () {
+    $.ajax({
+      type:'GET',
+      url: 'http://localhost:3000/sessions/allSessions',
+      success: (sessions) => {
+        console.log('This is dan');
+        this.setState({
+          sessions: sessions
+        });
+      }
+    });
+  }
+
   render() {
     return (
       //Defines the nav bar and different routes depending on clicks
       <div>
         <MyNav handleSearchChange={ this.handleSearchChange.bind(this) } 
-               handleSubmit={ this.handleSubmit.bind(this) }/>
+               handleSubmit={ this.handleSubmit.bind(this) } />
         <div className="container">
           <h1>Eatups around you!</h1>
         </div>
         <div>
-            <MyEatups data = {this.state.data}/>
+          <ListOfEatUp sessions = {this.state.sessions} />
+         </div> 
+        <div>
+            <MyEatups data = {this.state.data} />
         </div>       
       </div>
     )

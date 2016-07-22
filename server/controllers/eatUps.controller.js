@@ -11,10 +11,11 @@ var tempData = [{creatorID: 'Dan', location: 'HackReactor'},
 module.exports = { 
 
 	sessions: {
-		// getAll: function(req, res) {
-		// 	model.sessions.getAll()
+		getAll: function(req, res) {
+			res.send(tempData);
+      // model.sessions.getAll()
 
-		// },
+		},
 
 		getUserSessions: function(req, res) {
 			res.send(tempData);
@@ -27,14 +28,4 @@ module.exports = {
 
 
 	}
-
-
-
-
-
-
-
-
-
-
-}
+};
