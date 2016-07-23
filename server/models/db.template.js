@@ -1,5 +1,5 @@
 var Sequelize = require('sequelize');
-var db = new Sequelize('database_name', 'username', 'password');
+var db = new Sequelize('database', 'username', 'password');
 
 db.authenticate()
   .then(function(err) {
@@ -68,4 +68,4 @@ module.exports = {
       return User.findOne({where: {username: username, password: password}});
     }
   }
-}
+};

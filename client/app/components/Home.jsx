@@ -80,15 +80,12 @@ class Home extends React.Component {
       <div>
         <MyNav handleSearchChange={ this.handleSearchChange.bind(this) } 
                handleSubmit={ this.handleSubmit.bind(this) } />
-        <div className="container">
-          <h1>Eatups around you!</h1>
-        </div>
         <Grid>
           <Row>
-            <Col xs={5} md={4}>
+            <Col xs={7} md={7} className="allEatups">
               <ListOfEatUp sessions = {this.state.sessions} />
             </Col>
-            <Col xs={5} md={4}>
+            <Col xs={3} md={3} className="myEatups">
               <MyEatups data = {this.state.data} />
             </Col>
           </Row>

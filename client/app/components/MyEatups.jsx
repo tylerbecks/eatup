@@ -7,7 +7,7 @@ class MyEatups extends React.Component {
 
   render () {
   	return (
-      <div>
+      <div className="well">
     		<h2>Your Eatups</h2>
     		{this.props.data.map(restaurant => 
     			<div>
