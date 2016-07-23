@@ -33257,7 +33257,7 @@
   \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -33268,6 +33268,42 @@
 	var _react = __webpack_require__(/*! react */ 2);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _Grid = __webpack_require__(/*! react-bootstrap/lib/Grid */ 274);
+	
+	var _Grid2 = _interopRequireDefault(_Grid);
+	
+	var _Row = __webpack_require__(/*! react-bootstrap/lib/Row */ 320);
+	
+	var _Row2 = _interopRequireDefault(_Row);
+	
+	var _Col = __webpack_require__(/*! react-bootstrap/lib/Col */ 319);
+	
+	var _Col2 = _interopRequireDefault(_Col);
+	
+	var _Form = __webpack_require__(/*! react-bootstrap/lib/Form */ 324);
+	
+	var _Form2 = _interopRequireDefault(_Form);
+	
+	var _FormGroup = __webpack_require__(/*! react-bootstrap/lib/FormGroup */ 308);
+	
+	var _FormGroup2 = _interopRequireDefault(_FormGroup);
+	
+	var _FormControl = __webpack_require__(/*! react-bootstrap/lib/FormControl */ 309);
+	
+	var _FormControl2 = _interopRequireDefault(_FormControl);
+	
+	var _ControlLabel = __webpack_require__(/*! react-bootstrap/lib/ControlLabel */ 325);
+	
+	var _ControlLabel2 = _interopRequireDefault(_ControlLabel);
+	
+	var _Checkbox = __webpack_require__(/*! react-bootstrap/lib/Checkbox */ 326);
+	
+	var _Checkbox2 = _interopRequireDefault(_Checkbox);
+	
+	var _Button = __webpack_require__(/*! react-bootstrap/lib/Button */ 313);
+	
+	var _Button2 = _interopRequireDefault(_Button);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -33280,74 +33316,88 @@
 	var SignIn = function (_React$Component) {
 	  _inherits(SignIn, _React$Component);
 	
-	  function SignIn() {
+	  function SignIn(props) {
 	    _classCallCheck(this, SignIn);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SignIn).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SignIn).call(this, props));
+	
+	    _this.state = {
+	      username: '',
+	      password: ''
+	    };
+	    return _this;
 	  }
 	
 	  _createClass(SignIn, [{
-	    key: "render",
+	    key: 'onUserNameChange',
+	    value: function onUserNameChange(event) {
+	      this.setState({
+	        username: event.target.value
+	      });
+	    }
+	  }, {
+	    key: 'onPasswordChange',
+	    value: function onPasswordChange(event) {
+	      this.setState({
+	        password: event.target.value
+	      });
+	    }
+	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit() {}
+	  }, {
+	    key: 'getValidationState',
+	    value: function getValidationState() {}
+	  }, {
+	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        Grid,
+	        _Grid2.default,
 	        null,
 	        _react2.default.createElement(
-	          Row,
+	          _Row2.default,
 	          null,
 	          _react2.default.createElement(
-	            Col,
-	            { xs: 7, sm: 5, md: 4, className: "authComponent" },
+	            _Col2.default,
+	            { xs: 7, sm: 5, md: 4, className: 'authComponent' },
 	            _react2.default.createElement(
-	              "h1",
-	              { className: "welcome" },
-	              "Welcome Back"
+	              'h1',
+	              { className: 'welcome' },
+	              'Welcome Back'
 	            )
 	          )
 	        ),
 	        _react2.default.createElement(
-	          Form,
+	          _Form2.default,
 	          { horizontal: true },
 	          _react2.default.createElement(
-	            Row,
-	            null,
+	            _FormGroup2.default,
+	            { controlId: 'formHorizontalEmail' },
 	            _react2.default.createElement(
-	              Col,
-	              { xs: 7, sm: 5, md: 4, className: "authComponent" },
-	              _react2.default.createElement(
-	                FormGroup,
-	                { controlId: "formHorizontalEmail" },
-	                _react2.default.createElement(FormControl, { type: "email", placeholder: "Email address", onChange: this.onUserNameChange.bind(this) })
-	              )
+	              _Col2.default,
+	              { xs: 7, sm: 5, md: 4, className: 'authComponent' },
+	              _react2.default.createElement(_FormControl2.default, { type: 'email', placeholder: 'Email address', onChange: this.onUserNameChange.bind(this) })
 	            )
 	          ),
 	          _react2.default.createElement(
-	            Row,
-	            null,
+	            _FormGroup2.default,
+	            { controlId: 'formHorizontalPassword' },
 	            _react2.default.createElement(
-	              Col,
-	              { xs: 7, sm: 5, md: 4, className: "authComponent" },
-	              _react2.default.createElement(
-	                FormGroup,
-	                { controlId: "formHorizontalPassword" },
-	                _react2.default.createElement(FormControl, { type: "password", placeholder: "Password" })
-	              )
+	              _Col2.default,
+	              { xs: 7, sm: 5, md: 4, className: 'authComponent' },
+	              _react2.default.createElement(_FormControl2.default, { type: 'password', placeholder: 'Password', onChange: this.onPasswordChange.bind(this) })
 	            )
 	          ),
 	          _react2.default.createElement(
-	            Row,
+	            _FormGroup2.default,
 	            null,
 	            _react2.default.createElement(
-	              Col,
-	              { xs: 7, sm: 5, md: 4, className: "authComponent" },
+	              _Col2.default,
+	              { xs: 7, sm: 5, md: 4, className: 'authComponent' },
 	              _react2.default.createElement(
-	                FormGroup,
-	                null,
-	                _react2.default.createElement(
-	                  Button,
-	                  { type: "submit", bsStyle: "primary", block: true },
-	                  " Sign in "
-	                )
+	                _Button2.default,
+	                { type: 'submit', bsStyle: 'primary', block: true },
+	                ' Sign in '
 	              )
 	            )
 	          )
@@ -33453,7 +33503,6 @@
 	      this.setState({
 	        password: event.target.value
 	      });
-	      console.log(this.state.password);
 	    }
 	  }, {
 	    key: 'onConfPasswordChange',
@@ -33463,9 +33512,19 @@
 	      });
 	    }
 	  }, {
-	    key: 'onSubmit',
-	    value: function onSubmit() {
-	      if (this.state.password === this.state.confirmedPassword) {}
+	    key: 'handleSubmit',
+	    value: function handleSubmit() {
+	      if (this.state.password === this.state.confirmedPassword) {
+	        console.log('The passwords match!');
+	      } else {
+	        console.log('Your passwords don\'t match. Get your act together!');
+	      }
+	    }
+	  }, {
+	    key: 'getValidationState',
+	    value: function getValidationState() {
+	      var length = this.state.value.length;
+	      if (length > 10) return 'success';else if (length > 5) return 'warning';else if (length > 0) return 'error';
 	    }
 	  }, {
 	    key: 'render',
@@ -33490,67 +33549,45 @@
 	          _Form2.default,
 	          { horizontal: true },
 	          _react2.default.createElement(
-	            _Row2.default,
-	            null,
+	            _FormGroup2.default,
+	            { controlId: 'formHorizontalEmail' },
 	            _react2.default.createElement(
 	              _Col2.default,
 	              { xs: 7, sm: 5, md: 4, className: 'authComponent' },
-	              _react2.default.createElement(
-	                _FormGroup2.default,
-	                { controlId: 'formHorizontalEmail' },
-	                _react2.default.createElement(_FormControl2.default, {
-	                  type: 'email',
-	                  placeholder: 'Email address',
-	                  onChange: this.onUserNameChange.bind(this) })
-	              )
+	              _react2.default.createElement(_FormControl2.default, { type: 'email', placeholder: 'Email address', onChange: this.onUserNameChange.bind(this) })
 	            )
 	          ),
 	          _react2.default.createElement(
-	            _Row2.default,
-	            null,
+	            _FormGroup2.default,
+	            { controlId: 'formHorizontalPassword' },
 	            _react2.default.createElement(
 	              _Col2.default,
 	              { xs: 7, sm: 5, md: 4, className: 'authComponent' },
-	              _react2.default.createElement(
-	                _FormGroup2.default,
-	                { controlId: 'formHorizontalPassword' },
-	                _react2.default.createElement(_FormControl2.default, {
-	                  type: 'password',
-	                  placeholder: 'Password',
-	                  onChange: this.onPasswordChange.bind(this) })
-	              )
+	              _react2.default.createElement(_FormControl2.default, { type: 'password', placeholder: 'Password', onChange: this.onPasswordChange.bind(this) })
 	            )
 	          ),
 	          _react2.default.createElement(
-	            _Row2.default,
-	            null,
+	            _FormGroup2.default,
+	            { controlId: 'formHorizontalPassword' },
 	            _react2.default.createElement(
 	              _Col2.default,
 	              { xs: 7, sm: 5, md: 4, className: 'authComponent' },
-	              _react2.default.createElement(
-	                _FormGroup2.default,
-	                { controlId: 'formHorizontalPassword' },
-	                _react2.default.createElement(_FormControl2.default, {
-	                  type: 'password',
-	                  placeholder: 'Confirm password',
-	                  onChange: this.onConfPasswordChange.bind(this) })
-	              )
+	              _react2.default.createElement(_FormControl2.default, {
+	                type: 'password',
+	                placeholder: 'Confirm password',
+	                onChange: this.onConfPasswordChange.bind(this) })
 	            )
 	          ),
 	          _react2.default.createElement(
-	            _Row2.default,
+	            _FormGroup2.default,
 	            null,
 	            _react2.default.createElement(
 	              _Col2.default,
 	              { xs: 7, sm: 5, md: 4, className: 'authComponent' },
 	              _react2.default.createElement(
-	                _FormGroup2.default,
-	                null,
-	                _react2.default.createElement(
-	                  _Button2.default,
-	                  { type: 'submit', bsStyle: 'primary', block: true },
-	                  'Sign in'
-	                )
+	                _Button2.default,
+	                { onClick: this.handleSubmit.bind(this), type: 'submit', bsStyle: 'primary', block: true },
+	                'Sign in'
 	              )
 	            )
 	          )
