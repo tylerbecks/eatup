@@ -82,10 +82,10 @@ class Home extends React.Component {
                handleSubmit={ this.handleSubmit.bind(this) } />
         <Grid>
           <Row>
-            <Col xs={7} md={7} className="allEatups">
+            <Col xs={6} md={5} className="allEatups">
               <ListOfEatUp sessions = {this.state.sessions} />
             </Col>
-            <Col xs={3} md={3} className="myEatups">
+            <Col xs={3} md={3} className="myEatups well">
               <MyEatups data = {this.state.data} />
             </Col>
           </Row>
