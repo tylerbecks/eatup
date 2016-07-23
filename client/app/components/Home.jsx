@@ -3,6 +3,9 @@ import { Link } from 'react-router';
 import MyNav from './Navbar.jsx';
 import MyEatups from './MyEatups.jsx';
 import ListOfEatUp from './Lists.jsx';
+import Grid from 'react-bootstrap/lib/Grid'
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -73,12 +76,16 @@ export default class Home extends React.Component {
         <div className="container">
           <h1>Eatups around you!</h1>
         </div>
-        <div>
-          <ListOfEatUp sessions = {this.state.sessions} />
-         </div> 
-        <div>
-            <MyEatups data = {this.state.data} />
-        </div>       
+        <Grid>
+          <Row>
+            <Col xs={5} md={4}>
+              <ListOfEatUp sessions = {this.state.sessions} />
+            </Col>
+            <Col xs={5} md={4}>
+              <MyEatups data = {this.state.data} />
+            </Col>
+          </Row>
+        </Grid>
       </div>
     )
   }

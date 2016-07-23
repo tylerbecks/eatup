@@ -14,7 +14,8 @@ class SignUp extends React.Component {
 		super(props);
 		this.state = {
 			username: '',
-			password: ''
+			password: '',
+      confirmedPassword: ''
 		}
 	}
 
@@ -28,14 +29,27 @@ class SignUp extends React.Component {
 		this.setState({
 			password: event.target.value
 		})
+    console.log(this.state.password);
 	}
+
+  onConfPasswordChange(event) {
+    this.setState({
+      confirmedPassword: event.target.value
+    })
+  }
+
+  onSubmit() {
+    if (this.state.password === this.state.confirmedPassword) {
+
+    }
+  }
 
   render () {
     return (
       <Grid>
         <Row>
-          <Col xs={7} sm={5} md={4} className="authComponent">
-            <h1 className="welcome">Welcome Back</h1>
+          <Col xs={7} sm={6} md={6} className="authComponent">
+            <h1 className="welcome">Pleased to Meet You</h1>
           </Col>
         </Row>
         
@@ -43,7 +57,10 @@ class SignUp extends React.Component {
           <Row>
     	      <Col xs={7} sm={5} md={4} className="authComponent">
               <FormGroup controlId="formHorizontalEmail">
-        	      <FormControl type="email" placeholder="Email address" onChange={this.onUserNameChange.bind(this)} />
+        	      <FormControl 
+                  type="email" 
+                  placeholder="Email address" 
+                  onChange={ this.onUserNameChange.bind(this) } />
         	    </FormGroup>
             </Col>
           </Row>
@@ -51,15 +68,29 @@ class SignUp extends React.Component {
           <Row>
       	    <Col xs={7} sm={5} md={4} className="authComponent">
               <FormGroup controlId="formHorizontalPassword">
-      	        <FormControl type="password" placeholder="Password" />
+      	        <FormControl 
+                  type="password" 
+                  placeholder="Password"
+                  onChange={ this.onPasswordChange.bind(this) } />
       	      </FormGroup>
             </Col>
           </Row>
 
           <Row>
             <Col xs={7} sm={5} md={4} className="authComponent">
+              <FormGroup controlId="formHorizontalPassword">
+                <FormControl 
+                  type="password" 
+                  placeholder="Confirm password"
+                  onChange={ this.onConfPasswordChange.bind(this) } />
+              </FormGroup>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col xs={7} sm={5} md={4} className="authComponent">
               <FormGroup>
-                  <Button type="submit" bsStyle="primary" block> Sign in </Button>
+                  <Button type="submit" bsStyle="primary" block>Sign in</Button>
               </FormGroup>
             </Col>
           </Row>
