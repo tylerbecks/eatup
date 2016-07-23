@@ -2,11 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, hashHistory } from 'react-router';
 
-//Imports all of the different components
 import Home from './components/Home.jsx';
 import SignIn from './components/SignIn.jsx';
 import SignUp from './components/SignUp.jsx';
-// import myMap from './components/Map.jsx';
 
 class App extends React.Component {
 
@@ -24,12 +22,3 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
-
-
-// document.addEventListener('DOMContentLoaded', function() {
-//   // const MyMap = React.createElement(myMap);
-//   ReactDOM.render(
-//     <myMap />,
-//     document.getElementById('app')
-//   );
-// });

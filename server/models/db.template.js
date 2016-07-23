@@ -38,53 +38,33 @@ Session.belongsToMany(User, { through: 'Attendees', foreignKey: 'sessionId' });
 User.sync().then(function() {
   Session.sync().then(function() {
     Attendees.sync().then(function() {
-      // User.create({
-      //   username: 'John',
-      //   password: 'Hancock'
-      // }).then(function(user) {
-      //   Session.create({
-      //     sessionname: 'Hearth',
-      //     latitude: 456,
-      //     longitude: 129,
-      //     creatorId: user.get('id')
-      //   });
-      // });
-
-
-      // User.create({
-      //   username: 'David',
-      //   password: 'dentist'
-      // });
-
-      // User.findOne({
-      //   where: {username: 'David'}
-      // }).then(function(user) {
-      //   Session.create({
-      //     sessionname: 'Zimmy Food Truck',
-      //     latitude: 456,
-      //     longitude: 129,
-      //     creatorId: user.get('id')
-      //   });
-      // });
-
-      // User.findOne({
-      //   where: {username: 'John'}
-      // }).then(function(user) {
-      //   Session.findOne({
-      //     where: {id: 1}
-      //   }).then(function(session) {
-      //     Attendees.create({
-      //       userId: user.get('id'),
-      //       sessionId: session.get('id')
-      //     });
-      //   });
-      // });
+     
     });
   });
 });
 // creates these tables in MySQL if they don't already exist. Pass in {force: true}
 // to drop any existing user and message tables and make new ones.
 
+module.exports = {
+  sessions: {
+    getUserSessions: function() {
+        // do sequalize here 
+        //return Session.findAll({ include: [ {model: User} ] });
 
-exports.User = User;
-exports.Session = Session;
+    }
+  },
+
+  user: {
+    signUp: function(user) {
+      var username = user.username;
+      var password = user.password;
+      return User.findOrCreate({where: {username: username}, defaults: {username: username, password: password}});
+    },
+
+    signIn: function(user) {
+      var username = user.username;
+      var password = user.password; 
+      return User.findOne({where: {username: username, password: password}});
+    }
+  }
+}
