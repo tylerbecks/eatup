@@ -1,7 +1,8 @@
 import React from 'react';
-import Form from 'react-bootstrap/lib/Form'; 
-import Col from 'react-bootstrap/lib/Col';
+import Grid from 'react-bootstrap/lib/Grid'
 import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import Form from 'react-bootstrap/lib/Form';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
@@ -31,33 +32,39 @@ class SignUp extends React.Component {
 
   render () {
     return (
-    	<Form horizontal>
-    	  <FormGroup controlId="formHorizontalEmail">
-    	    <Col componentClass={ControlLabel} sm={2}>
-    	      Email
-    	    </Col>
-    	    <Col sm={10}>
-    	      <FormControl type="email" placeholder="Email" onChange={this.onUserNameChange.bind(this)} />
-    	    </Col>
-    	  </FormGroup>
+      <Grid>
+        <Row>
+          <Col xs={7} sm={5} md={4} className="authComponent">
+            <h1 className="welcome">Welcome Back</h1>
+          </Col>
+        </Row>
+        
+      	<Form horizontal>
+          <Row>
+    	      <Col xs={7} sm={5} md={4} className="authComponent">
+              <FormGroup controlId="formHorizontalEmail">
+        	      <FormControl type="email" placeholder="Email address" onChange={this.onUserNameChange.bind(this)} />
+        	    </FormGroup>
+            </Col>
+          </Row>
 
-    	  <FormGroup controlId="formHorizontalPassword">
-    	    <Col componentClass={ControlLabel} sm={2}>
-    	      Password
-    	    </Col>
-    	    <Col sm={10}>
-    	      <FormControl type="password" placeholder="Password" />
-    	    </Col>
-    	  </FormGroup>
+          <Row>
+      	    <Col xs={7} sm={5} md={4} className="authComponent">
+              <FormGroup controlId="formHorizontalPassword">
+      	        <FormControl type="password" placeholder="Password" />
+      	      </FormGroup>
+            </Col>
+          </Row>
 
-    	  <FormGroup>
-    	    <Col smOffset={2} sm={10}>
-    	      <Button type="submit">
-    	        Sign in
-    	      </Button>
-    	    </Col>
-    	  </FormGroup>
-    	</Form>
+          <Row>
+            <Col xs={7} sm={5} md={4} className="authComponent">
+              <FormGroup>
+                  <Button type="submit" bsStyle="primary" block> Sign in </Button>
+              </FormGroup>
+            </Col>
+          </Row>
+      	</Form>
+      </Grid>
     )
   }
 }

@@ -34,7 +34,7 @@ class MyNav extends React.Component {
                   />
               </FormGroup>
               {' '}
-              <Button type="submit" onClick={ this.props.handleSubmit }>Submit</Button>
+              <Button type="submit" onClick={ this.props.handleSubmit }>Create Eatup</Button>
             </Navbar.Form>
           </Nav>
           <Nav pullRight>
