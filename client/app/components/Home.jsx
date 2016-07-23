@@ -56,7 +56,6 @@ export default class Home extends React.Component {
         <div className="container">
           <h1>Eatups around you!</h1>
         </div>
-        <MyNav />
         <div>
             <MyEatups data = {this.state.data}/>
         </div>       
