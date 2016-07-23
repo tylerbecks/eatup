@@ -37,7 +37,8 @@ class SignUp extends React.Component {
     })
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     if (this.state.password === this.state.confirmedPassword) {
       console.log('The passwords match!');
       $.ajax({
@@ -71,7 +72,8 @@ class SignUp extends React.Component {
         </Row>
         
       	<Form horizontal>
-          <FormGroup controlId="formHorizontalUsername">
+
+          <FormGroup>
             <Col xs={7} sm={5} md={4} className="authComponent">
               <FormControl type="text" placeholder="Username" onChange={this.onUserNameChange.bind(this)} />
             </Col>

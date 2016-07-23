@@ -6,7 +6,6 @@ class MyEatups extends React.Component {
   }
 
   render () {
-  	console.log(this.props.data);
   	return (
       <div>
     		<h2>Your Eatups</h2>

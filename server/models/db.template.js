@@ -15,6 +15,7 @@ var User = db.define('User', {
 
 var Session = db.define('Session', {
   sessionname: Sequelize.STRING,
+  address: Sequelize.STRING,
   latitude: Sequelize.INTEGER,
   longitude: Sequelize.INTEGER
 });

@@ -7,7 +7,6 @@ class ListOfEatUp extends React.Component {
   }
 
   render () {
-    console.log(this.props.sessions);
     var resultStuffs = this.props.sessions.map(result => <div> {result.location} </div>)
     return (
       <div>

@@ -14,6 +14,7 @@ export default class Home extends React.Component {
     this.state = {
       search: '',
       selectedCoordinate: null,
+      eatUp: {},
       data: [],
       sessions: []
     }
@@ -27,18 +28,24 @@ export default class Home extends React.Component {
   componentDidMount() {
     var input = document.getElementById('searchTextField');
     var options = {componentRestrictions: {country: 'us'}};   
-    this.setState({ autocomplete: new google.maps.places.SearchBox(input, options) });
+    this.setState({ autocomplete: new google.maps.places.Autocomplete(input, options) });
   }
 
   handleSearchChange(e) {
     this.setState({ search: e.target.value })
-    console.log(this.state.search) // setState is asynchronous, so this logged value is not updated
   }
 
   handleSubmit() {
     // post this.state.search to database
-    var place = this.state.autocomplete.getPlaces()[0];
-    console.log('Name: ' + place.name, 'Formateed Address: ' + place.formatted_address);
+    var place = this.state.autocomplete.getPlace();
+    this.setState({
+      eatUp: {
+        username: 'Dan',
+        locationName: place.name,
+        address: place.formatted_address
+      }
+    })
+    console.log(this);
   }
 
   getData () {
@@ -46,7 +53,6 @@ export default class Home extends React.Component {
       type:'GET',
       url: 'http://localhost:3000/sessions/userSessions',
       success: (data) => {
-        console.log('im here');
         this.setState({
           data: data
         });
@@ -59,7 +65,6 @@ export default class Home extends React.Component {
       type:'GET',
       url: 'http://localhost:3000/sessions/allSessions',
       success: (sessions) => {
-        console.log('This is dan');
         this.setState({
           sessions: sessions
         });
