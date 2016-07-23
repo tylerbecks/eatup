@@ -8,33 +8,22 @@ var tempData = [{creatorID: 'Dan', location: 'HackReactor'},
                 {creatorID: 'Sunny', location: 'FatBurger'}]
 
 
-module.exports = { 
+module.exports = {
 
-	sessions: {
-		// getAll: function(req, res) {
-		// 	model.sessions.getAll()
+  sessions: {
+    getAll: function(req, res) {
+      //Temp data just to make sure it works
+      // model.sessions.getAllSessions();
+      res.send(tempData);
+    },
+    getUserSessions: function(req, res) {
+      //Temp data just to make sure it works
+      res.send(tempData);
 
-		// },
-
-		getUserSessions: function(req, res) {
-			res.send(tempData);
-
-			//model.sessions.getUserSessions()
-		}
-
-
-
-
-
-	}
-
-
-
-
-
-
-
-
-
-
+      // model.sessions.getUserSessions().then(function(data){
+      //   res.end();
+      // });
+    }
+  }
 }
+
