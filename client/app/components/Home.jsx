@@ -1,14 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router';
-import MyNav from './Navbar.jsx'
+import MyNav from './Navbar.jsx';
+import MyEatups from './MyEatups.jsx';
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       search: '',
-      selectedCoordinate: null
+      selectedCoordinate: null,
+      data: []
     }
+  }
+
+  componentWillMount() {
+    this.getData();
   }
 
   componentDidMount() {
@@ -28,6 +34,19 @@ export default class Home extends React.Component {
     console.log('Name: ' + place.name, 'Formateed Address: ' + place.formatted_address);
   }
 
+  getData () {
+    $.ajax({
+      type:'GET',
+      url: 'http://localhost:3000/sessions/userSessions',
+      success: (data) => {
+        console.log('im here');
+        this.setState({
+          data: data
+        });
+      }
+    });
+  };
+
   render() {
     return (
       //Defines the nav bar and different routes depending on clicks
@@ -37,7 +56,17 @@ export default class Home extends React.Component {
         <div className="container">
           <h1>Eatups around you!</h1>
         </div>
+        <div>
+            <MyEatups data = {this.state.data}/>
+        </div>       
       </div>
     )
   }
+
 }
+
+
+
+
+
+

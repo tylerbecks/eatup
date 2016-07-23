@@ -1,9 +1,40 @@
-// var db = require('../models/db.js');
-// var Session = db.Session;
-//Routes will point to this controller
+var model = require('../models/db.js');
 
-  //The controller will then call the methods on the Model
+var tempData = [{creatorID: 'Dan', location: 'HackReactor'},
+                {creatorID: 'Brian', location: 'Subway'},
+                {creatorID: 'Dog', location: 'House'},
+                {creatorID: 'Neil', location: 'Yerba Buena'},
+                {creatorID: 'Henry', location: 'Oasis'},
+                {creatorID: 'Sunny', location: 'FatBurger'}]
 
-    //Model will query DB
 
-  //The controller will then pass data back to router
+module.exports = { 
+
+	sessions: {
+		// getAll: function(req, res) {
+		// 	model.sessions.getAll()
+
+		// },
+
+		getUserSessions: function(req, res) {
+			res.send(tempData);
+
+			//model.sessions.getUserSessions()
+		}
+
+
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+}
