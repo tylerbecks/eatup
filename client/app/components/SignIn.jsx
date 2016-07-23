@@ -31,7 +31,15 @@ class SignIn extends React.Component {
   }
 
   handleSubmit() {
-
+    $.ajax({
+            type:'POST',
+            url: 'http://localhost:3000/users/signIn',
+            data: JSON.stringify({username: this.state.username, password: this.state.password}),
+            contentType: 'application/json',
+            success: (username) => {
+              console.log('success');
+            }
+          });
   }
 
   getValidationState() {
@@ -48,9 +56,9 @@ class SignIn extends React.Component {
         </Row>
         
         <Form horizontal>
-          <FormGroup controlId="formHorizontalEmail">
+          <FormGroup controlId="formHorizontalUsername">
             <Col xs={7} sm={5} md={4} className="authComponent">
-              <FormControl type="email" placeholder="Email address" onChange={this.onUserNameChange.bind(this)} />
+              <FormControl type="text" placeholder="Username" onChange={this.onUserNameChange.bind(this)} />
             </Col>
           </FormGroup>
 
@@ -62,7 +70,7 @@ class SignIn extends React.Component {
 
           <FormGroup>
             <Col xs={7} sm={5} md={4} className="authComponent">
-              <Button type="submit" bsStyle="primary" block> Sign in </Button>
+              <Button onClick={ this.handleSubmit.bind(this) } type="submit" bsStyle="primary" block>Sign in</Button>
             </Col>
           </FormGroup>
         </Form>

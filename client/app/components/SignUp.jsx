@@ -40,6 +40,15 @@ class SignUp extends React.Component {
   handleSubmit() {
     if (this.state.password === this.state.confirmedPassword) {
       console.log('The passwords match!');
+      $.ajax({
+              type:'POST',
+              url: 'http://localhost:3000/users/signUp',
+              data: JSON.stringify({username: this.state.username, password: this.state.password}),
+              contentType: 'application/json',
+              success: (username) => {
+                console.log('success');
+              }
+            });
     } else {
       console.log('Your passwords don\'t match. Get your act together!')
     }
@@ -62,9 +71,9 @@ class SignUp extends React.Component {
         </Row>
         
       	<Form horizontal>
-          <FormGroup controlId="formHorizontalEmail">
+          <FormGroup controlId="formHorizontalUsername">
             <Col xs={7} sm={5} md={4} className="authComponent">
-              <FormControl type="email" placeholder="Email address" onChange={this.onUserNameChange.bind(this)} />
+              <FormControl type="text" placeholder="Username" onChange={this.onUserNameChange.bind(this)} />
             </Col>
           </FormGroup>
 
@@ -76,16 +85,13 @@ class SignUp extends React.Component {
 
           <FormGroup controlId="formHorizontalPassword">
             <Col xs={7} sm={5} md={4} className="authComponent">
-              <FormControl 
-                type="password" 
-                placeholder="Confirm password"
-                onChange={ this.onConfPasswordChange.bind(this) } />
+              <FormControl type="password" placeholder="Confirm password" onChange={ this.onConfPasswordChange.bind(this) } />
             </Col>
           </FormGroup>
 
           <FormGroup>
             <Col xs={7} sm={5} md={4} className="authComponent">
-              <Button onClick={ this.handleSubmit.bind(this) } type="submit" bsStyle="primary" block>Sign in</Button>
+              <Button onClick={ this.handleSubmit.bind(this) } type="submit" bsStyle="primary" block>Sign up</Button>
             </Col>
           </FormGroup>
       	</Form>
