@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Promise from 'bluebird';
 import { Link } from 'react-router';
 import MyNav from './Navbar.jsx';
 import MyEatups from './MyEatups.jsx';
@@ -8,13 +9,12 @@ import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 
 
-export default class Home extends React.Component {
+class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       search: '',
       selectedCoordinate: null,
-      eatUp: {},
       data: [],
       sessions: []
     }
@@ -38,14 +38,15 @@ export default class Home extends React.Component {
   handleSubmit() {
     // post this.state.search to database
     var place = this.state.autocomplete.getPlace();
-    this.setState({
-      eatUp: {
-        username: 'Dan',
-        locationName: place.name,
-        address: place.formatted_address
-      }
-    })
-    console.log(this);
+    this.setStateSync({
+    eatUp: {
+      username: 'Dan',
+      locationName: place.name,
+      address: place.formatted_address
+    }
+    }).then(function(eatUp) {
+      console.log(this.state.eatUp);
+    }.bind(this))
   }
 
   getData () {
