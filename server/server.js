@@ -10,8 +10,11 @@ var compiler = webpack(webpackConfig);
 
 
 require('./config/middleware.js')(app, express);
+
+
 require('./models/db.js');
 app.use(router);
+
 
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
